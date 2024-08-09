@@ -61,11 +61,13 @@
     gap: 5px;
 }
 
-@media (min-width: 300px){
+@media only screen and (min-width: 300px){
     .videos__item{
         text-align: center;
         justify-content: center;
         align-items: center;
+        border-radius: 16px;
+        flex-grow: 1;
     }
 }
 
