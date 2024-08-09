@@ -1,0 +1,155 @@
+/* cabeçalho */
+.cabecalho__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* atribuir posição fixa para nossa nav acompanhar a pagina conforme rolagem position fixed + a posição */
+    position: fixed; 
+    top: 0;
+}
+
+.cabecalho__pesquisar__item{
+    display: none;
+}
+/* rodapé */
+.rodape__container{
+    display: flex;
+    /* flex-direction: column; flex-flow: pode dar as 2 propriedades como shorthand
+    flex-wrap: wrap; */
+    flex-flow: column wrap;
+}
+
+.superior__secao__container{
+    display: flex;
+    align-items: center;
+    /* white-space serve para dentro do flexbox quebrar textos para quando acabar o espaço da box não cair para baixo */
+    white-space: nowrap;
+    /* overflow serve para criar barra de rolagem */
+    overflow: scroll;
+    /* gap só aplica espaçamento entre itens */
+    gap: 15px;
+}
+
+
+.menu__container{
+    position: fixed;
+    bottom: 0;
+    height: 74px;
+    width: 100%;
+}
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    /* poderiamos ter usando align-item: center que daria mesmo resultado do align-self abaixo */
+}
+
+.menu__lista li{
+    align-self: center;
+}
+/* como desejamos apenas que apareça a 1 parte do nosso menu lista e temos 4 ul de menus usamos seguinte codigo para deixar oculto */
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none;
+}
+
+.menu__itens{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+@media (min-width: 834px) {
+    
+    .cabecalho__pesquisar__item{
+        display: block;
+    }
+    .rodape__container{
+        justify-content: space-between;
+    }
+
+    .menu__container {
+        left: 0;
+        width: 74px;
+        height: auto;
+        top:80px;
+    }
+    
+    .menu__lista{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 33px;
+    }
+
+    .videos__container{
+        margin-top: 5px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .descricao-video{
+        margin-top: 5px;
+    }
+}
+/* alargamos o menu para dispositivos 1440px */
+@media (min-width: 1440px) {
+    .menu__container{
+        width: 239px;
+        overflow-y: scroll;
+    }
+/* vamos pegar nossas 3 listas e dar display flex para modificar depois */
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+    display: flex;
+    }
+    /*caso não aparecer temos que olhar largura e altura do container para ver se temos espaço neste caso o 1 menu ocupava 100%  */
+    .menu__lista{
+        height: auto;
+        /* estamos determinando preenchimento nas laterais cima / direita / baixo / esquerda */
+        padding: 20px 17px 20px 15px;
+        /* estamos colocando gap para dar espaçamento entre os itens da lista para ficarem agrupados */
+        gap:15px;
+    }
+
+    .menu__itens{
+        /* vamos aplicar direção para deixar itens alinhados com imagens em linhas */
+        flex-direction: row;
+        gap:15px;
+        align-items: center;
+    }
+
+    .menu__lista:nth-child(3){
+        flex-direction: column-reverse;
+    }
+        /* Aqui vamos alternar os elemento em order na lista para ficar da forma que desejar  */
+        /* Usar order não é muito indicado para leitores de tela pois eles leem de acordo ao html */
+    .jogos{
+        order: 3;
+    }
+
+    .filmes{
+        order: 2;
+    }
+
+    .premium{
+        order: 1;
+    }
+
+    .maispagina{
+        order: 4;
+    }
+
+    .videos__container{
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
