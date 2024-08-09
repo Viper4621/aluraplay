@@ -61,6 +61,16 @@
     gap: 5px;
 }
 
+@media (min-width: 300px){
+    .videos__item{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
 @media (min-width: 834px) {
     
     .cabecalho__pesquisar__item{
